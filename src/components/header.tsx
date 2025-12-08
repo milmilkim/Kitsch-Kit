@@ -6,13 +6,13 @@ import Link from "next/link";
 export default function Header() {
   const { data: session } = useSession();
 
-  const navItems: { name: string; href: string }[] = [
-    { name: "홈", href: "/" },
-    { name: "컨텐츠 추가", href: "/add-content" },
-  ];
+  // const navItems: { name: string; href: string }[] = [
+  //   { name: "홈", href: "/" },
+  //   { name: "컨텐츠", href: "/contents" },
+  // ];
 
   return (
-    <header className="header-gradient w-full shadow-lg">
+    <header className="gradient-primary w-full shadow-lg">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* 로고 */}
@@ -28,15 +28,18 @@ export default function Header() {
           {/* 네비게이션 메뉴 */}
           <nav className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="header-button header-hover py-2 font-medium"
-                >
-                  {item.name}
-                </Link>
-              ))}
+              <Link
+                href="/contents"
+                className="header-button header-hover py-2 font-medium"
+              >
+                컨텐츠
+              </Link>
+              <Link
+                href="/calendar"
+                className="header-button header-hover py-2 font-medium"
+              >
+                캘린더
+              </Link>
             </div>
           </nav>
 
